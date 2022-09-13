@@ -1,0 +1,34 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>Story Editor</title>
+  <script>
+
+  </script>
+
+  <style>
+    textarea{
+        width: 800px;
+        height: 250px;
+        background-color: #ccffff;
+    }
+  </style>
+</head>
+
+<body>
+	<h1>Story Editor</h1>
+    <input type="text" id="name" placeholder="story name" size="40" maxlength="60">
+    <br>
+    <section>
+        <button onclick="loadStory()">Find and Edit Story</button>
+        <button onclick="saveStory()">Save Story</button>
+        <button onclick="displayStory()">Display Story</button>
+    </section>
+    <br>
+    <textarea id="story" rows="10" cols="100" placeholder="Insert Story Here"></textarea>
+
+    <div id="story_display"></div>
+    <script src="main.js"></script>
+</body>
+</html>
