@@ -13,7 +13,7 @@ portarray = [
     },
     {
         "label" : "Week 4 Notes",
-        "url" : "week4/index.html"
+        "url" : "week4/week4notes.html"
     }
 ];
 

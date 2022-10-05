@@ -1,0 +1,425 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/main.css" />
+        <title>Week 4 Notes</title>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    </head>
+    <body>
+        <section id="top_head">
+            <h1>Week 4 Notes</h1>
+        </section>
+        <section class="notes_section">
+            <h2>N2N Chapter 5: Objects</h2>
+            <div class="content">
+                <h3>Object Literals</h3>
+                <ul class="notes">
+                    <li>
+                        Objects used to keep related information and functionality together in a single entity.
+                    </li>
+                    <li>
+                        Object literal is an object created by wrapping properties (key value pairs of primitive data) and methods (key value pairs of functions) in curly braces {}.
+                    </li>
+                    <li>
+                        If a property name has space in it, it must be put in ' '.
+                    </li>
+                    <li>
+                        All Object properties and methods are mutable (changeable) while running a program, even if it is defined using const
+                    </li>
+                </ul>
+                <h3>Creating Objects</h3>
+                <ul class="notes">
+                    <li>
+                        Example: const <em>objectName</em> = {};
+                    </li>
+                    <li>
+                        Using Constructor Function: const <em>objectName</em> = new Object(); <em>not recommended because too much typing</em>
+                    </li>
+                    <li>
+                        ES6 provided a shorthand for property names if the key is the same as a variable the property is assigned to:<br>
+                        <ul class="subnote">
+                            <li>
+                                const name = "some name";<br>
+                                const otherproperty = "example text";<br>
+                                <br>
+                                const <em>objectName</em> = {name, otherproperty};
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Access properties using dot notation example: <em>objectName</em>.<em>objectProperty</em>
+                    </li>
+                    <li>
+                        Access properties using bracket notation example: <em>objectName</em>[<em>'objectProperty'</em>]
+                    </li>
+                    <li>
+                        Values of a property can be a JavaScript expression, like a ternary operator or Symbol
+                    </li>
+                    <li>
+                        Using Symbols for the key is useful as they all have a unique value and that helps to avoid naming clashes.
+                    </li>
+                </ul>
+                <h3>Calling Methods</h3>
+                <ul class="notes">
+                    <li>
+                        Use dot notation example: <em>objectName</em>.<em>objectMethod()</em>
+                    </li>
+                </ul>
+                <h3>Checking if Properties or Methods Exist</h3>
+                <ul class="notes">
+                    <li>
+                        Use the <em>in</em> operator  example: '<em>propertyName</em>' in <em>objectName</em>;
+                    </li>
+                    <li>
+                        Also can use: <em>objectName</em>.hasOwnProperty('<em>propertyName</em>');<br>
+                        <ul>
+                            <li>
+                                This will only return true if the object has the property but won't return it if it is an inherited property. <em><b>IN</b></em> will return the true even with an inherited property
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Finding All Properties of Object</h3>
+                <ul class="notes">
+                    <li>
+                        for(const key in superman) {<br>
+                            &emsp;console.log(key + ": " + superman[key]);<br>
+                        }
+                    </li>
+                    <li>
+                        Create an array with all of an objects keys: <em>object</em>.keys()
+                    </li>
+                    <li>
+                        Create an array with all of the object values: <em>object</em>.values()
+                    </li>
+                    <li>
+                        For key value pairs array: <em>object</em>.entries()
+                    </li>
+                </ul>
+                <h3>Nested Objects</h3>
+            <ul class="notes">
+                <li>
+                    Objects can be nested in one another. Just add another dot notation to access the propertys of the nested object
+                </li>
+                <li>
+                    Objects are assigned by reference. If you assign a variable an existing object, then it will point to the same info in the memory. Changing the variable will change the object.
+                </li>
+            </ul>
+            <h3>Object as Parameter to Functions</h3>
+            <ul class="notes">
+                <li>
+                    This is useful when you are passing a large number of parameters to a function
+                </li>
+            </ul>
+            <h3>Object This</h3>
+            <ul class="notes">
+                <li>
+                    This is used to refer to properties withing the object.
+                </li>
+            </ul>
+            <h3>Namespacing</h3>
+            <ul class="notes">
+                <li>
+                    You can use objects as a store of functions so that you don't run into naming collisions. The object functions like a library of functions for you to draw from.
+                </li>
+            </ul>
+            <h3>JSON</h3>
+            <ul class="notes">
+                <li>
+                    Used commonly for data serialization(storing objects in a series of bytes that can be converted back to an object) and configuration.
+                </li>
+                <li>
+                    JSON is a string notation of an object
+                </li>
+                <li>
+                    JSON special rules:
+                    <ul>
+                        <li>1. Property names must be double-quoted ""</li>
+                        <li>2. Permitted values are double-quoted strings, numbers, true, false, null, arrays, and objects</li>
+                        <li>3. Functions are not permitted values</li>
+                    </ul>
+                </li>
+                <li>
+                    The .parse() method takes a JSON string and returns a JS object. Example: JSON.parse(<em>jsonvariable</em>)
+                </li>
+                <li>
+                    The JSON.stringify(<em>objectName</em>) method converts an Object into JSON data format.
+                </li>
+                <li>
+                    Methods in a stringified object are just ignored and not included.
+                </li>
+                <li>
+                    You can also use JSON.stringify(<em>objectName</em>, null, " ") to create a JSON that will add a space argument between key value pairs
+                </li>
+            </ul>
+            <h3>The Math Object</h3>
+            <ul class="notes">
+                <li>
+                    Math object has 8 properties that are a selection of commonly used math constants:
+                </li>
+                <uL>
+                    <li>
+                        Math.PI is pi
+                    </li>
+                    <li>
+                        Math.SQURT2 is the square root of 2
+                    </li>
+                    <li>
+                        Math.SQURT1_2 is the recipricol of the square root of 2
+                    </li>
+                    <li>
+                        Math.E is Euler's Constant
+                    </li>
+                    <li>
+                        Math.LN2 is the natural logarithm of 2
+                    </li>
+                    <li>
+                        Math.LN10 is the natural logarithm of 10
+                    </li>
+                    <li>
+                        Math.LOG2E is Log base 2 of Euler's constant
+                    </li>
+                    <li>
+                        Math.LOG10E is Log base 10 of Euler's constant 
+                    </li>
+                </uL>
+                <li>
+                    Math Methods:
+                    <ul>
+                        <li>
+                            Math.abs() method returns the absolute value of a number. So if the number is positive, it will remain the same, and if it's negative, it will become positive
+                        </li>
+                        <li>
+                            The Math.ceil() method will round a number up to the next integer, or remain the same if it is already an integer
+                        </li>
+                        <li>
+                            The Math.floor() method will round a number down to the next integer, or remain the same if it is already an integer
+                        </li>
+                        <li>
+                            The Math.round() method will round a number to the nearest integer
+                        </li>
+                        <li>
+                            Math.trunc() method that returns the integer-part of a number that is, it gets truncated at the decimal point
+                        </li>
+                        <li>
+                            The Math.exp() method will raise a number to the power of Euler's constant
+                        </li>
+                        <li>
+                            The Math.pow(<em>1st arg</em>, <em>2nd arg</em>) method will raise any number (the first argument) to the power of another number (the second argument)
+                        </li>
+                        <li>
+                            The Math.sqrt() method returns the positive square root of a number
+                        </li>
+                        <li>
+                            The Math.cbrt() method was introduced in ES6, which returns the cube root of numbers
+                        </li>
+                        <li>
+                            The Math.hypot() returns the square root of the sum of the squares of all its arguments.
+                        </li>
+                        <li>
+                            The Math.max() method returns the maximum number from its arguments
+                        </li>
+                        <li>
+                            And the Math.min() method unsurprisingly returns the minimum number from the given arguments
+                        </li>
+                        <li>
+                            Math.random() creates a random generated number between 0 and 1
+                        </li>
+                        <li>
+                            You can make that a random integer between 0 and a specified number like this: <b>Math.floor(<em>specifiedNumber</em> * Math.random());</b>
+                        </li>
+                    </ul>
+                </li>
+                <li>The Date Object: const today = new Date(). Date parameters are: new Date(year, month, day, hour, minutes, seconds, milliseconds)</li>
+                <li>Use the .toString() method returns the date in full length format.</li>
+                <li>
+                    An alternative is to use a timestamp, which is a single integer argument that represents the number of milliseconds since the Epoch (1st January 1970): new Date(1508367600000)
+                </li>
+                <li>
+                    Date Obj Getter Methods
+                    <ul>
+                        <li>getTime(), getTimezoneOffset(), getYear() don't have UTC equivalents</li>
+                        <li>getDay(), getUTCDay() find the day of the week and returns 0-6</li>
+                        <li>getDate(), getUTCDate() return the day of the month. These start counting at 1 not 0</li>
+                        <li>getMonth(), getUTCMonth() return the month of the year with a 0-11</li>
+                        <li>getFullYear(), getUTCFullYear() returns the year of the date</li>
+                        <li>getHours(), getMinutes(), getSeconds(), getMilliseconds()</li>
+                        <li>getTime() returns the number of milliseconds from the epoch Jan 1 1970</li> 
+                    </ul>
+                </li>
+                <li>
+                    The Getter methods have equivilent setter methods. Example: .setMonth(10)
+                </li>
+            </ul>
+            </div>
+        </section>
+        <section class="notes_section">
+            <h2>The Document Object Model</h2>
+            <div class="content">
+                <h3>DOM</h3>
+                <ul class="notes">
+                    <li>
+                        DOM represents the HTML document as a network of connected nodes that has a tree like structure.
+                    </li>
+                    <li>
+                        The DOM treats everything on a page as a node. Tags function as the root node with all it's parts as children of the node.
+                    </li>
+                </ul>
+                <h3>Getting Elements</h3>
+                <ul class="notes">
+                    <li>
+                        Methods that let us access a page element return a node object or node list(an arra-like object). These can be assigned to a variable and modified or viewed.
+                    </li>
+                    <li>
+                        <em>variableHoldNodeObj</em>.nodeType will show us what type of node it is:
+                        <ul>
+                            <li>1 = element</li>
+                            <li>2 = attribute</li>
+                            <li>3 = text</li>
+                            <li>8 = comment</li>
+                            <li>9 = body</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <em>variableObj</em>.nodeName property to find the name of the element
+                    </li>
+                </ul>
+                <h3>Legacy DOM Shortcut Methods</h3>
+                <ul class="notes">
+                    <li>
+                        These are left over from DOM level 0:
+                        <ul>
+                            <li>Document.body returns the body element of a web page, as we saw in the previous example.</li>
+                            <li>Document.images returns a node list of all the images contained in the document.</li>
+                            <li>Document.links returns a node list of all the "a" elements and "area" elements that have an href attribute.</li>
+                            <li>Document.anchors returns a node list of all the "a" elements that have a name attribute.</li>
+                            <li>Document.forms returns a node list of all the forms in the document</li>                            
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Get Element By ID</h3>
+                <ul class="notes">
+                    <li>
+                        Document.getElementById() retrieves the element with the unique ID specified
+                    </li>
+                    <li>
+                        Only use an ID once in an HTML document or it can cause odd issues in the code.
+                    </li>
+                </ul>
+                <h3>Get Element By Tag Name</h3>
+                <ul class="notes">
+                    <li>
+                        document.getElementsByTagName() will return a live node list of all the elements with the tag name. You can sort through them with []
+                    </li>
+                </ul>
+                <h3>Getting Elements by their class</h3>
+                <ul class="notes">
+                    <li>
+                        document.getElementsByClassName() gives a live node list
+                    </li>
+                </ul>
+                <h3>Query Selector</h3>
+                <ul class="notes">
+                    <li>
+                        document.querySelector() allows you to get the first element in a document that matches the <em>CSS Selector</em> given as an argument.
+                    </li>
+                    <li>
+                        document.querySelectorAll() functions the same but returns a node list that return all elements that match the CSS query Selector.
+                    </li>
+                    <li>
+                        This methodology is very powerful as it allows you to use CSS pseudo-selectors
+                    </li>
+                    <li>
+                        querySelector() can be called on any element, not just the <em>document</em> element. This includes element objecst that are stored in a variable.
+                    </li>
+                </ul>
+                <h3>Navigating the DOM Tree</h3>
+                <ul class="notes">
+                    <li>
+                        .childNodes property will show you all of the children nodes. This returns all children and not just the element children of the node
+                    </li>
+                    <li>
+                        .children will return just the element children nodes of a node
+                    </li>
+                    <li>
+                        There is also .firstChild and .lastChild
+                    </li>
+                    <li>
+                        .parentNode will return the parent node of an element
+                    </li>
+                    <li>
+                        .nextSibling returns the next adjacent node of the same parent. There is also a .previousSibling
+                    </li>
+                    <li>
+                        .textContent and .innerText access the text of an Element
+                    </li>
+                </ul>
+                <h3>Getting and Setting Attributes</h3>
+                <ul class="notes">
+                    <li>
+                        .getAttribute('') method returns the value of the attribute of the provided argument
+                    </li>
+                    <li>
+                        .setAttribute('<em>attributeName</em>','<em>attributeValue</em>') changes the value of the selected attribute. It takes two arguments. 
+                    </li>
+                    <li>
+                        .setAttribute() can also add an attribute that isn't already there.
+                    </li>
+                    <li>
+                        .className is a property that allows you to view and modify the class of an element. 
+                    </li>
+                    <li>
+                        .classList lets you see all the classes of an element. .classList.add() will add the argument to the elements class list. 
+                    </li>
+                    <li>
+                        .classList.remove() will remove from the class list
+                    </li>
+                    <li>
+                        .classList.toggle() will add if the class doesn't already exists or remove it if it does
+                    </li>
+                </ul>
+                <h3>Creating Dynamic Markup</h3>
+                <ul class="notes">
+                    <li>
+                        createElement() method allows you to create a new tag.
+                    </li>
+                    <li>
+                        document.createTextNode('<em>textString</em>') method allows you to create a text node.
+                    </li>
+                    <li>
+                        .appendChild() method lets you add another node as the last child of a parent node
+                    </li>
+                    <li>
+                        It is better to create a function to add elements.
+                    </li>
+                    <li>
+                        function createElement (tag, text) {<br>
+                            const el = document.createElement(tag);<br>
+                            el.textContent = text;<br>
+                            return el<br>
+                        }
+                    </li>
+                    <li>.insertBefore(<em>addElement</em>, <em>existingElement</em>) method will add an element before an existing element.</li>
+                    <li>
+                        .appendChild() and .insertBefore() can also be used to move an element in the web page
+                    </li>
+                    <li>.removeChild() will remove an element. This is called on the parent node and the parameter is the node to be removed.</li>
+                    <li>
+                        .replaceChild(<em>newElement</em>, <em>oldElement</em>) functions similarly but just replaces the node with another
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="notes_section">
+            <h2>Chapter</h2>
+            <div class="content">
+                <h3>Section</h3>
+                <ul class="notes">
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </body>
+</html>
