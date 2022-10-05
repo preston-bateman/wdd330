@@ -9,7 +9,7 @@ portarray = [
     },
     {
         "label" : "Week 3 Code",
-        "url" : "week3/index.html"
+        "url" : "week3/week3notes.html"
     },
     {
         "label" : "Week 4 Notes",
