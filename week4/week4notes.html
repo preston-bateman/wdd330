@@ -12,10 +12,261 @@
         <section class="notes_section">
             <h2>Chapter 8 Forms</h2>
             <div class="content">
-                <h3>Section</h3>
+                <h3>Accessing Form Elements</h3>
                 <ul class="notes">
                     <li>
-
+                        Legacy DOM had a document.forms that returned all of the forms in a list object
+                    </li>
+                    <li>
+                        You can use the name attribute to identify a form: document.forms.<em>formName</em>
+                    </li>
+                    <li>
+                        You can access the the elements in a form by using the name attribute: const input = form.<em>inputName</em>
+                    </li>
+                </ul>
+                <h3>Form Properties and Methods</h3>
+                <ul class="notes">
+                    <li>
+                        form.submit() method will auto submit the form. This doesn't trigger the form submit event though.
+                    </li>
+                    <li>
+                        form can be submited by using a button with the type being "button" or an input with the type beign 'image'
+                    </li>
+                    <li>form.reset() will reset a form to initial values. This can also be done with a button with a 'reset' type</li>
+                    <li>
+                        form.action property can be used to set the action attribute of a form.
+                    </li>
+                </ul>
+                <h3>Form Events</h3>
+                <ul class="notes">
+                    <li>
+                        The focus event is when an element is focused on by placing the cursor in the input. 
+                    </li>
+                    <li>
+                        The blur event occurs when the user moves the focus away from an element
+                    </li>
+                    <li>
+                        The change event happens when you move the focus away from the input after changing it. Blur event can also trigger if there but will do so after the change event.
+                    </li>
+                    <li>
+                        When a form is submitted, JS can intercept a form and change the outcome: form.addEventListener(). You can even add .preventDefault() to stop the original function altogether.
+                    </li>
+                </ul>
+                <h3>Retrieving Values from Form</h3>
+                <ul class="notes">
+                    <li>
+                        Text input has a value property that can be used to retrieve the text field. You can also set the value by input.value = "enter text"
+                    </li>
+                    <li>
+                        the placeholder attribute in html does not function as the value in the input
+                    </li>
+                </ul>
+                <h3>Form Controls</h3>
+                <ul class="notes">
+                    <li>
+                        Common types of Form controls are input, select, textarea, button
+                    </li>
+                </ul>
+                <h3>Input Fields</h3>
+                <ul class="notes">
+                    <li>
+                        Text input is the default type for an input.
+                    </li>
+                    <li>
+                        Password Input is like a text input but it hides the values as you type them
+                    </li>
+                    <li>
+                        Checkbox type is used to select different options. Users can select more than one item. By giving them the same name, they can be selected from the same property in JS 
+                    </li>
+                    <li>
+                        You can iterate over the checkbox list and it will see if it has the value of true or false.
+                    </li> 
+                    <li>
+                        Radio button input "type=radio". Is like checkbox but only allows one option to be selected. You can only have one option per group with the same Name attribute. The value will be stored in the <em>form</em>.<em>name</em>.value
+                    </li>
+                    <li>
+                        the "hidden" type can be used to submit information that the user will not be able to see
+                    </li>
+                    <li>
+                        the 'file' type is used to upload files. The browser will usually provide a browse button
+                    </li>
+                    <li>
+                        Other types include number, tel, and color as well as a couple other provided in HTML5
+                    </li>
+                    <li>
+                        Numbers have an optional min and max attribute
+                    </li>
+                    <li>
+                        Select Dropdown lists. Use the type "select" and then have option elements with values associated
+                    </li>
+                    <li>
+                        textarea is for longer pieces of text used for blog posts or comments
+                    </li>
+                    <li>
+                        Buttons have a default of submit type. There is also a reset type, and even a generic button type that you can add an event listener to.
+                    </li>
+                    <li>
+                        there is also a 'Menu' type button that can be combined with menu, menuitem, and li tags to create a dropdown menu.
+                    </li>
+                </ul>
+            </div>
+            <h2>Chapter 12 Object Oriented Programming in JavaScript</h2>
+            <div class="content">
+                <h3>OOP</h3>
+                <ul class="notes">
+                    <li>
+                        Encapsulation: inner workings of object are kept hidden to the user. Only the functionality is available to them, not how it is done.
+                    </li>
+                    <li>
+                        Polymorphism: the same process can be used for different objects. They can share the same method, but also have the ability to override shared methods with a more specific implementation.
+                    </li>
+                    <li>
+                        Inheritance: you can take all the properties of an object and then add more properties and methods to create a new object
+                    </li>
+                    <li>
+                        Javascript didn't have classes before ES6 and used actual objects as a bluepritn instead (prototype-base language). Even though ES6 has classes now, in the background it is using this prototype based method.
+                    </li>
+                </ul>
+                <h3>Constructor Functions</h3>
+                <ul class="notes">
+                    <li>
+                        Example:<br>
+                        const Dice = function (sides=6) {<br>
+                            this.sides = sides;<br>
+                            this.roll = function () {<br>
+                                return Math.floor(this.sides * Math.random() + 1)<br>
+                            }<br>
+                        }
+                    </li>
+                    <li>
+                        It is called like this: const redDice = new Dice();
+                    </li>
+                </ul>
+                <h3>ES6 Class Declarartions</h3>
+                <ul class="notes">
+                    <li>
+                        Class Declaration syntax functions the same as a constructor function. It just makes it more similar and familiar to other languages
+                    </li>
+                    <li>
+                        Example:
+                        <ul>
+                            <li>class Dice {<br>
+                                &emsp;constructor(sides=6){<br>
+                                    &emsp;&emsp;this.sides = sides;<br>
+                                &emsp;}<br>
+                                &emsp;roll() {<br>
+                                    &emsp;&emsp;return Math.floor(this.sides * Math.random() + 1)<br>
+                                }<br>
+                            }<br>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        You create an object the same way as the constructor function
+                    </li>
+                    <li>
+                        Class declarations are preferred as they are more succinct and they are all in strict mode automatically.
+                    </li>
+                    <li>
+                        All objects have a constructor property that returns the constructor function that created it
+                    </li>
+                </ul>
+                <h3>Static Methods</h3>
+                <ul class="notes">
+                    <li>
+                        'static' keyword can be used in class declarations to create a static method. These are methods you can call from the class directly. They are not available to the instances of a class.
+                    </li>
+                </ul>
+                <h3>Prototypal Inheritance</h3>
+                <ul class="notes">
+                    <li>
+                        Every class has a prototype property that is shared by all of it's instances. Any properties or methods of a prototype can be accessed by its instances.
+                    </li>
+                    <li>
+                        You can use the prototype property to edit a class after the class has been made in the code. This is useful if you need to add something but don't have access to the class itself.
+                    </li>
+                    <li><em>object</em>.__proto__ gives you the prototype property and returns the prototype object.</li>
+                    <li>The prototype object is live. If you update the prototype, then all of it's instances will gain those edits as well.</li>
+                    <li>
+                        An object instance can overwrite any of the prototypes properties or methods.
+                    </li>
+                </ul>
+                <h3>Public and Private Methods</h3>
+                <ul class="notes">
+                    <li>
+                        By default, object methods are public( they can be queried directly and changed by assignment). Avoid public with public facing objects.
+                    </li>
+                    <li>
+                        Avoid this by creating a _variable in the object. then make a this.setvariable = variable => {} and<br>
+                        this.getvariable = () => _variable;<br>
+                        This protects because the _variable has a local scope just to that object
+                    </li>
+                </ul>
+                <h3>The Object Constructor</h3>
+                <ul class="notes">
+                    <li>
+                        Properties of objects are enumerable or non-enumerable. Properties are not enumerable if they don't show in a <em>for</em> loop of the objects properties and methods 
+                    </li>
+                    <li>
+                        the .propertyIsEnumerable() takes a property from the object prototype as an argument and returns true or false if it is enumerable.
+                    </li>
+                    <li>
+                        A class can inherit from another class using the <em>extends</em> keyword in its declaration<br>
+                        Example: class <em>ClassName</em> extends <em>ClassName2</em> {}
+                    </li>
+                </ul>
+                <h3>Polymorphism</h3>
+                <ul class="notes">
+                    <li>
+                        Classes that inherit methods from the prototype can be overwritten.
+                    </li>
+                </ul>
+                <h3>Adding Methods to Built In Objects</h3>
+                <ul class="notes">
+                    <li>
+                        You are able to add methods to Number, String, and Array built in objects
+                    </li>
+                    <li>
+                        <b>Example: </b>Number.prototype.<em>newMethod</em> = function() {};
+                    </li>
+                    <li>You can also use a new class that extends one of the built in classes</li>
+                </ul>
+                <h3>Creating Objects from Other Objects</h3>
+                <ul class="notes">
+                    <li>
+                        the Object() constructor function has a method called create that can be used to make exact copies.
+                    </li>
+                    <li><b>Example: </b>const <em>newObjectName</em> = Object.create(<em>parentObject</em>)</li>
+                    <li>A second argument can be added to the create() method that adds additional properties to be added.</li>
+                </ul>
+                <h3>Mixin</h3>
+                <ul class="notes">
+                    <li>
+                        Mixins are ways of adding properties and methods of some objects withour using inheritance.
+                    </li>
+                    <li>
+                        Basic mixin functionality is provided by the Object.assign() method. This will assign to the object provided as the first argument all of the properties from any objects provided as further arguments
+                    </li>
+                </ul>
+                <h3>Binding This</h3>
+                <ul class="notes">
+                    <li>
+                        <em>This</em> can lose scope with nested objects.
+                    </li>
+                    <li>
+                        You can use the const that = this; before the nested function. Then refer to that in the nested function instead of this.
+                    </li>
+                    <li>
+                        You can also you a For-of instead of Foreach.
+                    </li>
+                    <li>
+                        Arrow functions are also a good practice as they don't have their own <em>this</em> context.
+                    </li>
+                </ul>
+                <h3>Borrowing Methods</h3>
+                <ul class="notes">
+                    <li>
+                        You can attach methods from objects to a variable. Than another object can use them by doing <em>variable</em>.call(<em>object</em>)
                     </li>
                 </ul>
             </div>
