@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+}
+.listen {
+    border: solid 1px;
+    font-size: 170px;
+    display: flex;
+    justify-content: center;
+}
+div.listen:nth-child(-n+3) {border-top: none;}
+
+div.listen:nth-child(3n) {border-right: none;}
+
+div.listen:nth-child(3n+1) {border-left: none;}
+
+div.listen:nth-child(n+7) {border-bottom: none;}
