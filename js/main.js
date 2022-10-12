@@ -14,6 +14,10 @@ portarray = [
     {
         "label" : "Week 4 Notes",
         "url" : "week4/week4notes.html"
+    },
+    {
+        "label" : "Week 5 Notes",
+        "url" : "week5/notes.html"
     }
 ];
 
