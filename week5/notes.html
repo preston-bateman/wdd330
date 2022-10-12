@@ -1,21 +1,186 @@
 <html>
     <head>
         <link rel="stylesheet" href="../css/main.css" />
-        <title>Week 4 Notes</title>
+        <title>Week 5 Notes</title>
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     </head>
     <body>
         <section>
-            <h1>Week 4 Notes</h1>
+            <h1>Week 5 Notes</h1>
         </section>
         <section class="notes_section">
-            <h2>Chapter</h2>
+            <h2>Chapter 10 Testing and Debugging</h2>
             <div class="content">
-                <h3>Section</h3>
+                <h3>Errors Exceptions and Warnings</h3>
                 <ul class="notes">
                     <li>
-
+                        Errors are usually:
+                        <ul>
+                            <li>
+                                System Error- problem with system or devices the software is working with
+                            </li>
+                            <li>
+                                Programmer Error- program has incorrect syntax or logic
+                            </li>
+                            <li>
+                                User Error- The user entered in data wrong
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        An Exception is an error that has a return value that the program can use to deal with the error.
+                    </li>
+                    <li>
+                        Exceptions will produce a stack trace. This is the sequence of functions or method calls that lead to the exception. 
+                    </li>
+                    <li>
+                        A warning is an error in the code that is not serious enough to cause the program to crash
+                    </li>
+                </ul>
+                <h3>Importance of Testing and Debugging</h3>
+                <ul class="notes">
+                    <li>
+                        Make sure that your code fails loudly so you don't miss any problems with the program.
+                    </li>
+                </ul>
+                <h3>Strict Mode</h3>
+                <ul class="notes">
+                    <li>
+                        Strict mode throws more errors and exceptions and warnings because it will show things that are 'poor style' as actual errors
+                    </li>
+                    <li>
+                        You implement strict mode by making the first string in any program 'use strict';
+                    </li>
+                    <li>
+                        You can use strict mode on a per function basis by making it the first item in the brackets
+                    </li>
+                    <li>
+                        Lint tools are even more strict than strict mode. They will look for bad style conventions, syntax errors, bad indentations. They are often used to enforce a styling guide for a company.
+                    </li>
+                </ul>
+                <h3>Feature Detection</h3>
+                <ul class="notes">
+                    <li>
+                        Feature detection checks to see if an API or some modern feature is supported in the browser.
+                    </li>
+                    <li>
+                        You most commonly do this by throwing it in an If statement with the arugment being the window.method. You than call a non-existing method in the block. If it is an unsupported feature, then it will throw and exception.
+                    </li>
+                </ul>
+                <h3>Debugging in the Browser</h3>
+                <ul class="notes">
+                    <li>
+                        When tracing the origin of a bug, use breakpoints that allow you to halt the code and view the values of the variables you are using to see if it is still working.
+                    </li>
+                    <li>
+                        Most basic breakpoint is using the alert() method at different points as Alert stops the program from keep running until you press OK.
+                    </li>
+                    <li>
+                        Most common is to use the console that is included in most browsers. 
+                    </li>
+                    <li>
+                        It is common practice to insert various console.log statements throughout the code to be able to pinpoint the problems behing the errors.
+                    </li>
+                    <li>console.trace() will also list an interactive stack trace in the console</li>
+                    <li>
+                        The debugger keyword will create breakpoints in your code that will pause it and let you see what your program is currently doing.
+                    </li>
+                    <li>
+                        You must remove all debugger references before shipping code because it will make it look like it is freezing to the end user.
+                    </li>
+                </ul>
+                <h3>Error Objects</h3>
+                <ul class="notes">
+                    <li>
+                        Error objects can be created by the host environment or by a constructor function: const error = new Error("Error message")
+                    </li>
+                    <li>
+                        There are seven other error objects:
+                        <ul>
+                            <li>
+                                EvalError- not currently used in ECMA script. Only used in legacy code to show errors when using the global eval() function
+                            </li>
+                            <li>
+                                RangeError- when a number is outside the allowed range.
+                            </li>
+                            <li>
+                                ReferenceError- is thrown when a reference is made to an item that doesn't exist.
+                            </li>
+                            <li>
+                                SyntaxError- error in the codes syntax.
+                            </li>
+                            <li>
+                                TypeError- thrown when there is a problem in the type of the value.
+                            </li>
+                            <li>
+                                URIError- when there is a problem encoding or decoding the URI.
+                            </li>
+                            <li>
+                                InternalError- non-standard error that is caused when there is an error in the JavaScript engine.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        These can be used in their own constructor functions.
+                    </li>
+                    <li>
+                        All errors have a numbers property but they are incosistent across browsers.
+                    </li>
+                    <li>They also all contain the 'name', 'message', and 'stack' property that are fairly consistent across browsers</li>
+                    <li>
+                        Exceptions can be thrown when there is an error in the program, or when you use a throw statement.
+                    </li>
+                    <li>
+                        The throw statement can be applied to any JavaScript expression. This will cause the execution of the program to stop.
+                    </li>
+                    <li>
+                        It is best practice to throw an error object that can be caught in a <em>catch</em> block.
+                    </li>
+                </ul>
+                <h3>Exception Handling</h3>
+                <ul class="notes">
+                    <li>
+                        It is more graceful to catch errors and handle or try and fix them so that it doesn't look like the program is crashing all the time. Then you can also allow the program to just keep running.
+                    </li>
+                    <li>
+                        If you suspect a piece of code could throw an exception, we can put it in a <em>try</em> block. This runs the code, and if an exception occurs, it will throw the it into a <em>catch</em> block.
+                    </li>
+                    <li>
+                        Code in an <em>catch</em> block will only run if an exception is thrown in the try block. The error object is passed as an argument to the <em>catch</em> block.
+                    </li>
+                    <li>
+                        The <em>finally</em> block will run after a try and catch block have run no matter what. This allows the program to keep running even when there is errors or if you want to continue the program without restarting.
+                    </li>
+                </ul>
+                <h3>Tests</h3>
+                <ul class="notes">
+                    <li>
+                        It is good to test your functions and code as you develop.
+                    </li>
+                    <li>
+                        Test-driven Development is the process of writing the test for the code before you write the code. This allows you to focus on writing working code that tests well and then you can refactor to make it better and ensure the code still works.
+                    </li>
+                    <li>TDD usually has these steps
+                        <ul>
+                            <li>1. Write Tests(they will fail initially)</li>
+                            <li>2. Write code to pass the test</li>
+                            <li>3. Refactor the code</li>
+                            <li>4. Test Refactored Code</li>
+                            <li>5. Write more tests for new features</li>
+                        </ul>
+                    </li>
+                    <li>
+                        This is often referred to the red-green-refactor cycle
+                    </li>
+                    <li>
+                        TDD is currently a best practice but can be a slower method of development and can be scaled back to allow for quick turn around.
+                    </li>
+                    <li>
+                        Testing frameworks like <em>Jest</em> that allow you to run TDD more natively.
+                    </li>
+                    <li>
+                        JEST was created by facebook and is very popular today. You install it using npm: npm install -g jest.
                     </li>
                 </ul>
             </div>
