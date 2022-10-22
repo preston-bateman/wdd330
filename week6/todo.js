@@ -43,6 +43,18 @@ function updatelist(ind) {
     updateView();
 }
 
+function updateView(num) {
+    if (num === '1'){
+        document.getElementsByClassName('compview').style.display = 'flex';
+        document.getElementsByClassName('notcompview').style.display = 'flex';
+    }else if (num === '2'){
+        document.getElementsByClassName('compview').style.display = 'flex';
+        document.getElementsByClassName('notcompview').style.display = 'none';
+    }else if (num === '3'){
+        document.getElementsByClassName('compview').style.display = 'none';
+        document.getElementsByClassName('notcompview').style.display = 'flex';
+    }
+}
 
 window.updatelist = updatelist;
 window.updateView = Utilities.updateView;

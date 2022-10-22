@@ -76,4 +76,10 @@ body {
 .completed{
     text-decoration: line-through;
 }
+div .compview {
+    display: flex;
+}
 
+div .notcompview {
+    display: none;
+}

@@ -4,7 +4,7 @@ export const Task = function (content) {
     this.completed = false;
 }
 
-export function createList () {
+/*export function createList () {
     const obj = JSON.parse(localStorage.getItem('data'))
     obj.forEach(value => {
     let x = document.createElement("div");
@@ -20,7 +20,7 @@ export function createList () {
     document.getElementById("todo-list").appendChild(x);
     });
 
-}
+}*/
 
 export function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -70,14 +70,18 @@ export function createList1 () {
         const xl = document.createAttribute('id');
         xl.value = att2;
         x.setAttributeNode(xl);
-        x.classList.add('task-list', att2,);
+        x.classList.add('task-list', att2);
         document.getElementById("todo-list").appendChild(x);
         let newDiv = document.createElement("div");
         newDiv.classList.add(att2, 'check-box');
         if(value.completed) {
-            newDiv.innerText = ""
+            newDiv.innerText = "";
+            x.classList.remove('notcompview');
+            x.classList.add('compview');
         }else{
-            newDiv.innerText = "X"
+            newDiv.innerText = "X";
+            x.classList.remove('compview');
+            x.classList.add('notcompview');
         }
         newDiv.setAttribute('onclick', 'updatelist('+index+')');
         const divID = document.createAttribute('id');
