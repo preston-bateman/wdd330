@@ -67,6 +67,10 @@ body {
     cursor: pointer;
 }
 
+#bottom-bar > * {
+    margin-right: 7px;
+}
+
 .task-list {
     display: flex;
     flex-direction: row;
