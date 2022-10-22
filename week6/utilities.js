@@ -63,6 +63,7 @@ export function deleteRow (ind) {
 
 export function createList1 () {
     const obj = JSON.parse(localStorage.getItem('data'))
+    console.log(obj);
     obj.forEach((value, index) => {
         let x = document.createElement("div");
         let text = value.content;
@@ -75,11 +76,11 @@ export function createList1 () {
         let newDiv = document.createElement("div");
         newDiv.classList.add(att2, 'check-box');
         if(value.completed) {
-            newDiv.innerText = "";
+            newDiv.innerText = "X";
             x.classList.remove('notcompview');
             x.classList.add('compview');
         }else{
-            newDiv.innerText = "X";
+            newDiv.innerText = "";
             x.classList.remove('compview');
             x.classList.add('notcompview');
         }
@@ -92,12 +93,10 @@ export function createList1 () {
         let newTaskItem = document.createElement('div');
         newTaskItem.classList.add(att2, 'task-text');
         newTaskItem.innerText = text;
-        if (value.completed) {
-            newTaskItem.classList.add('strike');
-        }
         x.appendChild(newDiv);
         x.appendChild(newTaskItem);
         x.appendChild(dBTN);
+
     });
 
 }
@@ -109,5 +108,14 @@ export function strike() {
 export function updateView () {
     const parent = document.getElementById("todo-list");
     removeAllChildNodes(parent);
-    createList1();    
+    createList1();
+    let tasksLeftCounter = 0;
+    const obj = JSON.parse(localStorage.getItem('data'))
+    for (let i = 0; i < obj.length; i++){
+        if (obj[i].completed === false){
+            tasksLeftCounter++;
+        }
+    }
+    let tasksLeft = document.getElementById("tasks-left");
+    tasksLeft.innerHTML = `${tasksLeftCounter} Uncompleted Tasks`;    
 }

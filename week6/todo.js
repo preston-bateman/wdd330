@@ -5,13 +5,14 @@ import * as Utilities from './utilities.js'
 if (localStorage.getItem('data') === null){
     localStorage.setItem('data', '[]')
 }
-const taskArray = JSON.parse(localStorage.getItem('data'));
+let taskArray = JSON.parse(localStorage.getItem('data'));
 
 const btn = document.getElementById("btn");
 let tasksLeft = document.getElementById("tasks-left");
 tasksLeft.innerHTML = 0;
 
-Utilities.createList1();
+//Utilities.createList1();
+window.onload = updateBoard();
 
 function updateBoard () {
     updateTask()
@@ -21,10 +22,20 @@ function updateBoard () {
 
 function updateTask () {
     const content = document.getElementById("entered-text").value.trim();
-    const newTask = new Utilities.Task(content);
-    taskArray.push(newTask);
-    const arrayString = JSON.stringify(taskArray);
-    localStorage.setItem('data', arrayString);
+    if (content === "") {
+    }
+    else {
+        const newTask = new Utilities.Task(content);
+        const updateArray = JSON.parse(localStorage.getItem('data'))
+        updateArray.push(newTask);
+        const arrayString = JSON.stringify(updateArray);
+        localStorage.setItem('data', arrayString);
+    }
+    /*const newTask = new Utilities.Task(content);
+    const updateArray = JSON.parse(localStorage.getItem('data'))
+    updateArray.push(newTask);
+    const arrayString = JSON.stringify(updateArray);
+    localStorage.setItem('data', arrayString);*/
 }
 
 
@@ -43,22 +54,41 @@ function updatelist(ind) {
     updateView();
 }
 
-function updateView(num) {
+function filterView(num) {
     if (num === '1'){
-        document.getElementsByClassName('compview').style.display = 'flex';
-        document.getElementsByClassName('notcompview').style.display = 'flex';
+        let a = document.getElementsByClassName('compview');
+        let b = document.getElementsByClassName('notcompview')
+        for (let i = 0; i < a.length; i++) {
+            a[i].style.display = 'flex';
+        }
+        for (let i = 0; i < b.length; i++) {
+            b[i].style.display = 'flex';
+        }
     }else if (num === '2'){
-        document.getElementsByClassName('compview').style.display = 'flex';
-        document.getElementsByClassName('notcompview').style.display = 'none';
+        let a = document.getElementsByClassName('compview');
+        let b = document.getElementsByClassName('notcompview')
+        for (let i = 0; i < a.length; i++) {
+            a[i].style.display = 'none';
+        }
+        for (let i = 0; i < b.length; i++) {
+            b[i].style.display = 'flex';
+        }
     }else if (num === '3'){
-        document.getElementsByClassName('compview').style.display = 'none';
-        document.getElementsByClassName('notcompview').style.display = 'flex';
+        let a = document.getElementsByClassName('compview');
+        let b = document.getElementsByClassName('notcompview')
+        for (let i = 0; i < a.length; i++) {
+            a[i].style.display = 'flex';
+        }
+        for (let i = 0; i < b.length; i++) {
+            b[i].style.display = 'none';
+        }
     }
 }
 
 window.updatelist = updatelist;
 window.updateView = Utilities.updateView;
 window.deleteRow = Utilities.deleteRow;
+window.filterView = filterView;
 
 
 
