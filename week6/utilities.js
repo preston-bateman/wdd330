@@ -117,5 +117,5 @@ export function updateView () {
         }
     }
     let tasksLeft = document.getElementById("tasks-left");
-    tasksLeft.innerHTML = `${tasksLeftCounter} Tasks`;    
+    tasksLeft.innerHTML = `${tasksLeftCounter} Tasks Left`;    
 }
