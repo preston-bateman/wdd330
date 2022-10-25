@@ -4,24 +4,6 @@ export const Task = function (content) {
     this.completed = false;
 }
 
-/*export function createList () {
-    const obj = JSON.parse(localStorage.getItem('data'))
-    obj.forEach(value => {
-    let x = document.createElement("div");
-    let text = value.content;
-    const att1 = document.createAttribute('class');
-    att1.value = 'task-list';
-    const att2 = document.createAttribute('id');
-    att2.value = value.id;
-    x.setAttributeNode(att1);
-    x.setAttributeNode(att2);
-    x.innerText = text;
-    console.log(x);
-    document.getElementById("todo-list").appendChild(x);
-    });
-
-}*/
-
 export function removeAllChildNodes(parent) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild)
