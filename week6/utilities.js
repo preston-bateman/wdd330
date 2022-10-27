@@ -38,7 +38,7 @@ export function updatelist(ind) {
 
 export function deleteRow (ind) {
     const obj = JSON.parse(localStorage.getItem('data'));
-    obj.splice(ind, 1);
+    obj.splice(ind, 1); 
     localStorage.setItem('data', JSON.stringify(obj));
     updateView();
 }
