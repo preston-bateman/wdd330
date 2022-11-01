@@ -26,6 +26,10 @@ portarray = [
     {
         "label" : "To Do App",
         "url" : "week6/index.html"
+    },
+    {
+        "label" : "Week 7 Notes",
+        "url" : "week7/notes.html"
     }
 ];
 

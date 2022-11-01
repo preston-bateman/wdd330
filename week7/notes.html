@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/main.css" />
+        <title>Week 7 Notes</title>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    </head>
+    <body>
+        <section>
+            <h1>Week 7 Notes</h1>
+        </section>
+        <section class="notes_section">
+            <h2>Chapter 11 Further Functions</h2>
+            <div class="content">
+                <h3>Function Properties</h3>
+                <ul class="notes">
+                    <li>
+                        Functions have properties and methods as they are function objects
+                    </li>
+                    <li>
+                        call() method can be used to set the value of <em>this</em> inside of a function<br>
+                        eq: function sayHello(){<br>
+                            return `hello, my name is ${this.name}`;<br>
+                        }<br>
+                        const clark = {name: 'clark'}<br>
+                        sayHello.call(clark);<br>
+                        If a function uses parameters then they need to be called after the first parameter because that is always the <em>this</em>.
+                    </li>
+                    <li>
+                        You can add properties to functions as if they are objects using dot notation. <br>
+                        you can use this as a caching mechanism called memoization. <br>
+                    </li>
+                </ul>
+                <h3>Immediately Invoked Function Expressions</h3>
+                <ul class="notes">
+                    <li>
+
+                    </li>
+                </ul>
+                <h3>Section</h3>
+                <ul class="notes">
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </body>
+</html>
