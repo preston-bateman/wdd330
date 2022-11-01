@@ -34,13 +34,149 @@
                 <h3>Immediately Invoked Function Expressions</h3>
                 <ul class="notes">
                     <li>
-
+                        Called IIFE or iffy- an annonymous function that is called as soon as it is defined
+                    </li>
+                    <li>
+                        (function(){<br>
+                            const temp = "world";</br>
+                            console.log(temp);<br>
+                        })();
+                    </li>
+                    <li>
+                        Iffy's are a good way to perform a function without keeping variables wrapped in scope of function
+                    </li>
+                    <li>
+                        An IFFY can be used for temporary variables that will not clash with any other piece of code, like a javascript library.
+                    </li>
+                    <li>
+                        They can also be added at the beginning as an initialization function. 
+                    </li>
+                    <li>
+                        You can use iife in situations where you are working with others code and want strict mode to only apply to your work.
+                    </li>
+                    <li>
+                        You can use iife to enclose code in its own block to create it's own private scope. This will allow you to reuse variable names in your code.<em>ES6 allows you to do the same with block notation</em>
                     </li>
                 </ul>
-                <h3>Section</h3>
+                <h3>Functions that Define and Rewrite Themselves</h3>
                 <ul class="notes">
                     <li>
-
+                        You do this by assigning an anonymous function to a variable that has the same name as the containing function.
+                    </li>
+                    <li>
+                        By redefining the fuction, it will lose any properties that were set for it after it is called.
+                    </li>
+                    <li>
+                        This allows for Init-Time Branching. That is used to check to see if a feature exists and then rewrite the function after the initial check.
+                    </li>
+                </ul>
+                <h3>Recursive Funtions</h3>
+                <ul class="notes">
+                    <li>
+                        This is a function that calls itself until a condition is met. It usually uses and if statement with an else that calls the function again after making a change.
+                    </li>
+                </ul>
+                <h3>Callbacks</h3>
+                <ul class="notes">
+                    <li>
+                        These are functions called as arguments in another function and then invoked inside that function. Often used to help with async uses.
+                    </li>
+                    <li>
+                        Promises represent the future result of an asynchronous operation. They are used to avoid Callback Hell.
+                        <ul class="notes">
+                            <li>Promises have 3 states: Pending, unsettled, settled</li>
+                            <li>settled promises are either rejected or resolved depending if the async action was successful</li>
+                            <li>eg: const promise = new Promise( (resolve, reject) => {<br>
+                            if (success) {<br>
+                                resolve(value);<br>
+                            }<br>
+                            else {<br>
+                                reject(error);<br>
+                            }<br>
+                        });
+                            </li>
+                            <li>Once a promise is settled, the .then method is used to deal with the outcome.</li>
+                            <li>.then takes 2 arguments. The first is a function that deals with the result of a resolved outcome. The second is a function that deals with the reject outcome of the promise.</li>
+                            <li>the .catch method can also be used to specify what happens after a rejection.</li>
+                            <li>you can use then() to chain together promises to create a piece of async code.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Async Functions added in ES2017 spec. These functions are preceded with the async keyword and allow you to write asynchronous code as if it was synchronous.
+                        <ul class="notes">
+                            <li>
+                                This is achieved by using the await operator before an async function and the try and catch operation.
+                            </li>
+                            <li>
+                                async function loadGame(userName) {<br>
+                                    try {<br>
+                                        const user = await login(userName);<br>
+                                        const info = await getPlayerInfo (user.id);<br>
+                                        // load the game using the returned info<br>
+                                    }<br>
+                                    catch (error){<br>
+                                        throw error;<br>
+                                    }<br>
+                                }<br>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3>Closures</h3>
+                <ul class="notes">
+                    <li>
+                        Functions that are declared inside of another function have access to the variables of that parent function.
+                    </li>
+                    <li>A closure is formed when the inner function is returned by the outer function. </li>
+                </ul>
+                <h3>Functional Programming</h3>
+                <ul class="notes">
+                    <li>
+                        Javascript is a multi-paradigm programming language. If can be object oriented or functional programming oriented.
+                    </li>
+                    <li>
+                        Functional programming uses pure functions. Pure functions abide the following rules:
+                        <ol class="notes">
+                            <li>
+                                The return value of a pure function should only depend on the values provided as arguments. It doesn't rely on values from somewhere else in the program.
+                            </li>
+                            <li>
+                                There are no side-effects. A pure function doesn't change any values or data elsewhere in the program. It only makes non-destructive data transformations and returns new values, rather than altering any of the underlying data.
+                            </li>
+                            <li>
+                                Referential Transparency: Given the same arguments, a pure function will always return the same value.
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+            <h2>Chapter 13: AJAX</h2>
+            <div class="content">
+                <h3>Clients and Servers</h3>
+                <ul class="notes">
+                    <li>
+                        JavaScript was originally a client side language. AJAX was developed to allow the requesting of resources from a server.
+                    </li>
+                </ul>
+                <h3>Fetch API</h3>
+                <ul class="notes">
+                    <li>
+                        Has 1 mandatory argument that is the URL of the resource.
+                    </li>
+                    <li>
+                        It is a promise function so that it uses the then and catch methods.
+                    </li>
+                    <li>
+                        The response interface deals with the object that is returned from the server when the promise is fulfilled. It has several properties like ok, status, headers, url, redirected, type.
+                    </li>
+                    <li>
+                        the redirect method allows you to redirect the response to a new url (response.redirect(newURL))
+                    </li>
+                    <li>
+                        fetch(url)<br>
+                        .then( response => response.json() ); // transforms the JSON data into a JavaScript object<br>
+                        .then( data => console.log(Object.entries(data)) )<br>
+                        .catch( error => console.log('There was an error: ', error))<br>
                     </li>
                 </ul>
             </div>
