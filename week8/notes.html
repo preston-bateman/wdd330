@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/main.css" />
+        <title>Week 8 Notes</title>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    </head>
+    <body>
+        <section>
+            <h1>Week 8 Notes</h1>
+        </section>
+        <section class="notes_section">
+            <h2>Chapter 8 CSS3 Transforms and Transitions</h2>
+            <div class="content">
+                <h3>Transforms</h3>
+                <ul class="notes">
+                    <li>
+                        The CSS3 transform property lets you lets you translate, rotate, scale, and/or skew any element on the page.
+                    </li>
+                    <li>
+                        Transform function manipulate elements. Transform property is one or more transform functions
+                    </li>
+                    <li>
+                        Don't use multiple transform properties. Instead use mulitple functions seperated by a space.
+                    </li>
+                    <li>
+                        Translate functions let you move things up, down, left, and right from current position. transform: translate(x,y)
+                    </li>
+                    <li>
+                        Transforms don't work on inline elements. You can fix with inline-block
+                    </li>
+                    <li>
+                        The scale function scales things horizontally then vertically. If only one statement is passed then it is used for both. Scaling also doesn't affect the flow of the document. Other elements won't move to fit the element
+                    </li>
+                    <li>
+                        Rotate rotates an element around it's center a certain amount. Deg, grads, radians, or turns can be used.
+                    </li>
+                    <li>
+                        Skew will skew an element on the x and y axis. If only one number is provided, it will only do the x axis.
+                    </li>
+                    <li>
+                        Transform-Origin property changes the point from which the transform occurs. It uses the same syntax as background-position.
+                    </li>
+                </ul>
+                <h3>Transitions</h3>
+                <ul class="notes">
+                    <li>
+                        Always declare the transform in the default state
+                    </li>
+                    <li>
+                        You can add as many css properties to the transition property seperated by commas. 
+                    </li>
+                    <li>
+                        Transition duration tells how long it takes for the change. It can by in seconds or milliseconds. 200 ms is very typical.
+                    </li>
+                    <li>
+                        Transition-timing-function lets you do non-linear time transitions. Use values like: ease, linear, ease-in, ease-out, ease-in-out. You can also use the value of a <a href="http://cubic-bezier.com">cubic-bezier</a> function to alter the transition timing.
+                    </li>
+                    <li>
+                        The transition delay function lets you delay the animation. Can use S or MS.
+                    </li>
+                    <li>
+                        The shorthand for the 4 transition properties is: transition: propertyValue durationValue timingFunctionValue delayValue;
+                    </li>
+                </ul>
+                <h3>Animations</h3>
+                <ul class="notes">
+                    <li>
+                        Animations are different from transitions because you have control over the midpoinst and not just the beginning and end.
+                    </li>
+                    <li>
+                        You control the animation with keyframes. A keyframe is a snapshot or a point of transition. 
+                    </li>
+                    <li>
+                        You create an animation by defining it first with an @keyframes with the name of the property and curly braces and then you assign it to an element
+                    </li>
+                    <li>
+                        Syntax: @keyframes animationName {keyframes-selector {css-styles;}}
+                    </li>
+                    <li>
+                        Keyframe selectors are either from or to, or a percentage of where it is in the animation.
+                    </li>
+                    <li>
+                        You attach an animation to an element using the animation-name property. Don't put quotes around the name in the value.
+                    </li>
+                    <li>
+                        animation-duration defines how long the animation takes from 0 to 100 percent.
+                    </li>
+                    <li>
+                        animation-timing-function is like the transition one but for animations.
+                    </li>
+                    <li>animation-iteration-count lets you define how many times the animation will play through. Default is 1 but you can do as many as infinite.</li>
+                    <li>
+                        animation-direction lets you determine if it goes start to finish and restart or plays back to first and then first to back. Use normal, reverse, alternate, or alternate-reverse. When animations are played in reverse the timing functions are also reversed. ease-in becomes ease-out.
+                    </li>
+                    <li>
+                        Animation-play-state property defines whether an animation is running or paused. This allows you to control the animation with css or javascript.
+                    </li>
+                    <li>
+                        The animation property takes as its value a space-separated list of values for the longhand animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, and animation-play-state properties
+                    </li>
+                </ul>
+            </div>
+            <h2>Chapter 12 Canvas, SVG, and Drag and Drop</h2>
+            <div class="content">
+                <h3>Canvas</h3>
+                <ul class="notes">
+                    <li>
+                        HTML5 has a Canvas API that lets you drow anything using javascript.
+                    </li>
+                    <li>
+                        With canvas, we can draw shapes and lines, arcs and text, gradients and patterns. In addition, canvas gives us the power to manipulate pixels in images and even video.
+                    </li>
+                    <li>
+                        You have to add a canvas element to your html document. Text inbetween canvas tags will only show if canvas is not supported by the browser.
+                    </li>
+                    <li>
+                        You need to set the width and height in the canvas tag and not using css as this defines the canvas coordinate system size. You also need to be able to grab the element using the DOM in JavasScript. That means id and class attributes.
+                    </li>
+                    <li>
+                        Tip: giving canvas a border in css allows you to see the edges of the canvas object.
+                    </li>
+                    <li>
+                        Grab the canvas element by assigning it to a variable in JavasScript.
+                    </li>
+                    <li>
+                        Setup the canvas context with let context = canvasObj.getContext("2d"). This is an instance of the context object.
+                    </li>
+                    <li>
+                        3d drawing is available with the WebGL API. Documentation: <a href="http://www.khronos.org/webgl">WebGL</a>
+                    </li>
+                    <li>
+                        context has a strokeStyle property and a fillStyle property that are set by giving them a string color, CanvasGradient object or a CanvasPattern object. You can use any CSS color name, hexdec value or rgba value.
+                    </li>
+                    <li>
+                        CanvasPattern
+                    </li>
+                    <li>
+                        there is a fillRect and strokeRect method that take the arguments x, y, width and height. Coordinates in canvas start in the top left corner.
+                    </li>
+                    <li>
+                        There is also a drawing method with a path that begins with a context.beginPath() and finishes with a context.closePath(). Between the calling of the 2 methods you can call other methods like .arc.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </body>
+</html>
