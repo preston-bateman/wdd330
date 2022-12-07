@@ -9,8 +9,22 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    align-items: center;
+
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    textarea {
+        margin-top: .4em;
+    }        
+}
+
+
+#tracking {
+    width: 13em;
+}
 @media (min-width: 30em) {
     body {
         background-color: $bluesky;
