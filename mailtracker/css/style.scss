@@ -1,8 +1,19 @@
 @import "./variables";
 
+
+
 body {
     background-color: $bluesky;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headers;
+}
+
+p, li, span {
+    font-family: $bodyfont;
+}
+
 #wrapper {
     width: 100%;
     padding: 0;
@@ -13,18 +24,58 @@ body {
 
 }
 
-form {
+#tracking {
+    width: 25em;
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        textarea {
+            margin-top: .4em;
+            height: 2em;
+        }
+        button {
+            margin-top: .4em;
+            height: 2em;
+            width: 50%;
+        }
+        select {
+            height: 2em;
+            width: 40%;
+        }  
+    }
+}
+
+#details {
+    //container
+}
+
+.nodisplay {
+    display: none;
+}
+
+.infobox {
+    border: 1.5px solid $gunmetal;
+    width: 25em;
     display: flex;
     flex-direction: column;
-    textarea {
-        margin-top: .4em;
-    }        
+    background-color: $lavender;
+    margin-top: .4em;
 }
 
-
-#tracking {
-    width: 13em;
+.titleh {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+    }
 }
+
 @media (min-width: 30em) {
     body {
         background-color: $bluesky;

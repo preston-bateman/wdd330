@@ -1,5 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Roboto+Slab:wght@300&display=swap");
 body {
   background-color: #A0C1d1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+p, li, span {
+  font-family: "Roboto Slab", serif;
 }
 
 #wrapper {
@@ -11,16 +20,52 @@ body {
   align-items: center;
 }
 
-form {
+#tracking {
+  width: 25em;
+}
+#tracking form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-form textarea {
+#tracking form textarea {
+  margin-top: 0.4em;
+  height: 2em;
+}
+#tracking form button {
+  margin-top: 0.4em;
+  height: 2em;
+  width: 50%;
+}
+#tracking form select {
+  height: 2em;
+  width: 40%;
+}
+
+.nodisplay {
+  display: none;
+}
+
+.infobox {
+  border: 1.5px solid #232C33;
+  width: 25em;
+  display: flex;
+  flex-direction: column;
+  background-color: #DADFF7;
   margin-top: 0.4em;
 }
 
-#tracking {
-  width: 13em;
+.titleh {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.titleh h1, .titleh h2, .titleh h3, .titleh h4, .titleh h5, .titleh h6 {
+  margin: 0;
 }
 
 @media (min-width: 30em) {
