@@ -11,13 +11,13 @@
                 <h1>Package Tracker</h1>
             </section>
             <section id="tracking">
-                <form>
+                <form id="tracknum">
                     <select id="carrier" name="carrier">
                         <option value="usps">USPS</option>
                         <option value="fedex">FEDEX</option>
                         <option value="ups">UPS</option>
                     </select>
-                    <textarea name="tnumber" id="tnumber" rows="1" cols="45" placeholder="Tracking #"></textarea>
+                    <textarea name="tnumber" id="tnumber" rows="1" cols="45" placeholder="Tracking #" required></textarea>
                     <button type="submit">Track</button>
                 </form>
             </section>
@@ -27,10 +27,12 @@
             </section>
             <section id="previous" class="infobox">
                 <div class="titleh"><h4>Previous Searches</h4></div>
+                <ul id="previouslist"></ul>
             </section>
             <footer>
 
             </footer>
         </div>
+        <script type="text/javascript" src="./js/testmain.js"></script>
     </body>
 </html>
