@@ -121,6 +121,6 @@ async function fedexTracking(trackingNumber) {
     };
 
     const trackingDetails = await fetch("https://apis-sandbox.fedex.com/track/v1/trackingnumbers", requestOptions)
-    return trackingDetails.json();
-
+    const parsingdetails = await trackingDetails.json()
+    return parsingdetails?.output?.completeTrackResults[0]?.trackResults[0];
 }
