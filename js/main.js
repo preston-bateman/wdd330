@@ -38,6 +38,10 @@ portarray = [
     {
         "label" : "Week 9 Notes",
         "url" : "week9/notes.html"
+    },
+    {
+        "label" : "Final Project",
+        "url" : "mailtracker/index.html"
     }
 ];
 

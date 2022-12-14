@@ -69,30 +69,23 @@ function packageDetails (carrier, trackingNumber) {
 }
 
 async function oauthRequest () {
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    // WARNING: For POST requests, body is set to null by browsers.
+    var data = "grant_type=client_credentials&client_id=l700ae01606ea24cd9aa7305540ca338b6&client_secret=5c9d32d24ba943a1bb741e79c8cd8ce5";
 
-    var urlencoded = new URLSearchParams();
-    urlencoded.append("grant_type", "client_credentials");
-    urlencoded.append("client_id", "l700ae01606ea24cd9aa7305540ca338b6");
-    urlencoded.append("client_secret", "5c9d32d24ba943a1bb741e79c8cd8ce5");
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-    var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: urlencoded,
-    redirect: 'follow'
-    };
-
-    try {
-        const token = await fetch("https://thingproxy.freeboard.io/fetch/https://apis-sandbox.fedex.com/oauth/token?=", requestOptions);
-        console.log(await token.json());
-        return token.json();
+    xhr.addEventListener("readystatechange", function() {
+    if(this.readyState === 4) {
+        console.log(this.responseText);
     }
-    catch (e) {
-        console.log(e);
-    }
-    
+    });
+
+    xhr.open("POST", "https://apis-sandbox.fedex.com/oauth/token?=");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("x-custom", "thisisgiberish");
+    xhr.send(data);
+        
 }
 
 async function fedexTracking(trackingNumber) {
@@ -115,12 +108,13 @@ var raw = JSON.stringify({
 var requestOptions = {
   method: 'POST',
   headers: myHeaders,
+  mode: 'no-cors',
   body: raw,
   redirect: 'follow'
 };
 
-const trackingDetails = await fetch("https://thingproxy.freeboard.io/fetch/https://apis-sandbox.fedex.com/track/v1/trackingnumbers", requestOptions)
-console.log(trackingDetails.json())
-return trackingDetails.json();
+const trackingDetails = await fetch("https://apis-sandbox.fedex.com/track/v1/trackingnumbers", requestOptions)
+console.log(trackingDetails.text())
+return trackingDetails.text();
 
 }
