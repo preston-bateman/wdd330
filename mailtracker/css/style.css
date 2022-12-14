@@ -122,5 +122,13 @@ p, li, span {
 @media (min-width: 64em) {
   body {
     background-color: #A0C1d1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #wrapper {
+    max-width: 30em;
+    height: 95%;
+    border: 1px ridge black;
   }
 }/*# sourceMappingURL=style.css.map */
