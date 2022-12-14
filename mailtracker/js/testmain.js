@@ -14,7 +14,7 @@ const form = document.forms['tracknum'];
 
 form.addEventListener('submit', submitForm, false);
 
-function submitForm(event1) {
+async function submitForm(event1) {
     event1.preventDefault();
 
     const newID = {};
@@ -25,7 +25,9 @@ function submitForm(event1) {
     appendTracking(newID);
 
     setLocalStorage();
-    fedexTracking(newID.number);
+    const fedexResults = await fedexTracking(newID.number);
+    console.log(fedexResults);
+    
     
 
     //console.log(localArray);
@@ -85,8 +87,7 @@ async function oauthRequest () {
     };
 
     try {
-        const token = await fetch("https://thingproxy.freeboard.io/fetch/https://apis-sandbox.fedex.com/oauth/token?=", requestOptions);
-        console.log(await token.json());
+        const token = await fetch("https://apis-sandbox.fedex.com/oauth/token?=", requestOptions);
         return token.json();
     }
     catch (e) {
@@ -98,29 +99,28 @@ async function oauthRequest () {
 async function fedexTracking(trackingNumber) {
     const {access_token} = await oauthRequest();
     var myHeaders = new Headers();
-myHeaders.append("authorization", "Bearer " + access_token);
-myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("authorization", "Bearer " + access_token);
+    myHeaders.append("content-type", "application/json");
 
-var raw = JSON.stringify({
-  "includeDetailedScans": true,
-  "trackingInfo": [
-    {
-      "trackingNumberInfo": {
-        "trackingNumber": trackingNumber
-      }
-    }
-  ]
-});
+    var raw = JSON.stringify({
+    "includeDetailedScans": true,
+    "trackingInfo": [
+        {
+        "trackingNumberInfo": {
+            "trackingNumber": trackingNumber
+        }
+        }
+    ]
+    });
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
 
-const trackingDetails = await fetch("https://thingproxy.freeboard.io/fetch/https://apis-sandbox.fedex.com/track/v1/trackingnumbers", requestOptions)
-console.log(trackingDetails.json())
-return trackingDetails.json();
+    const trackingDetails = await fetch("https://apis-sandbox.fedex.com/track/v1/trackingnumbers", requestOptions)
+    return trackingDetails.json();
 
 }
