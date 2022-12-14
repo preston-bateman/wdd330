@@ -1,14 +1,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="./css/style.css" />
-        <title>Universal Package Tracker</title>
+        <title>Fedex Package Tracker</title>
         <meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     </head>
     <body>
         <div id="wrapper">
             <section id="topbar">
-                <h1>Package Tracker</h1>
+                <h1>Fedex Package Tracker</h1>
             </section>
             <section id="tracking">
                 <form id="tracknum">
@@ -18,18 +18,31 @@
                         <option value="ups">UPS</option>
                     </select>
                     <textarea name="tnumber" id="tnumber" rows="1" cols="45" placeholder="Tracking #" required></textarea>
-                    <button type="submit">Track</button>
+                    <button type="submit" id="myBtn" class="button"><span>Track</span></button>
                 </form>
             </section>
             <section id="details" class="infobox">
                 <div class="titleh"><h4>Your Package Details</h4></div>
                 <div id="trackinfo">
-                    <ul id="trackdetails"></ul>
+                    <ul id="trackdetails">
+                        <li id="trackernum"></li>
+                        <li id="currentstatus"></li>
+                        <li id="estdeliv"></li>
+                    </ul>
                 </div>
             </section>
             <section id="previous" class="infobox">
                 <div class="titleh"><h4>Previous Searches</h4></div>
                 <ul id="previouslist"></ul>
+            </section>
+            <section class="infobox">
+                <div class="titleh"><h4>Test Tracking Numbers:</h4></div>
+                <ul id="testnumbers">
+                    <li>122816215025810</li>
+                    <li>039813852990618</li>
+                    <li>231300687629630</li>
+                    <li>123456789012</li>
+                </ul>
             </section>
             <footer>
 

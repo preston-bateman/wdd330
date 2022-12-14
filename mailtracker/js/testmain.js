@@ -10,9 +10,12 @@ if (localStorage.stored != null) {
 
     //console.log(localArray);
 }
+
+console.log(localArray);
 const form = document.forms['tracknum'];
 
 form.addEventListener('submit', submitForm, false);
+
 
 async function submitForm(event1) {
     event1.preventDefault();
@@ -25,12 +28,35 @@ async function submitForm(event1) {
     appendTracking(newID);
 
     setLocalStorage();
-    const fedexResults = await fedexTracking(newID.number);
-    console.log(fedexResults);
-    
-    
 
-    //console.log(localArray);
+    if (newID.carrier === "fedex") {
+        const fedexResults = await fedexTracking(newID.number);
+        console.log(fedexResults);
+        try{
+            displayResults(fedexResults);
+        }catch (error){
+            alert("This is an invalid tracking number. Please try again")
+        }
+    }
+    previousSearchFill(localArray);
+}
+
+function displayResults(results) {
+    const trackingNumber = results.trackingNumberInfo.trackingNumber;
+
+    const estDelivResult = results.dateAndTimes[0].dateTime;
+    const delivDate = estDelivResult.slice(0, 10);
+    const status = results.latestStatusDetail.statusByLocale;
+    const numDisplay = document.getElementById('trackernum');
+    const statusDisplay = document.getElementById('currentstatus');
+    const delivDisplay = document.getElementById('estdeliv');
+    document.getElementById('details').style.display = "block";
+
+    numDisplay.innerText = "Tracking Number: " + trackingNumber;
+    statusDisplay.innerText = "Status: " + status;
+    delivDisplay.innerText = "Estimated Delivery: " + delivDate;
+
+
 }
 
 function appendTracking(num) {
@@ -46,6 +72,7 @@ function setLocalStorage() {
 
 function previousSearchFill (array1) {
     obj = document.getElementById('previouslist');
+    obj.innerHTML = ''
     for (var i = 0; i < array1.length; i++) {
         const node = document.createElement('li');
         const link = document.createElement('a');
@@ -59,15 +86,20 @@ function previousSearchFill (array1) {
     }
 }
 
-function packageDetails (carrier, trackingNumber) {
-    console.log(carrier);
-    const carrierNode = document.createElement('li');
-    const idNode = document.createElement('li');
-    carrierNode.innerText = 'Carrier: ' + carrier.toUpperCase();
-    idNode.innerText = 'Tracking Number: ' + trackingNumber;
-    obj = document.getElementById('trackdetails');
-    obj.appendChild(carrierNode);
-    obj.appendChild(idNode);
+async function packageDetails (carrier, trackingNumber) {
+    const oldResults = await fedexTracking(trackingNumber);
+    const estDelivResult = oldResults.dateAndTimes[0].dateTime;
+    console.log(estDelivResult);
+    const delivDate = estDelivResult.slice(0, 10);
+    const status = oldResults.latestStatusDetail.statusByLocale;
+    const numDisplay = document.getElementById('trackernum');
+    const statusDisplay = document.getElementById('currentstatus');
+    const delivDisplay = document.getElementById('estdeliv');
+    document.getElementById('details').style.display = "block";
+
+    numDisplay.innerText = "Tracking Number: " + trackingNumber;
+    statusDisplay.innerText = "Status: " + status;
+    delivDisplay.innerText = "Estimated Delivery: " + delivDate;
 }
 
 async function oauthRequest () {

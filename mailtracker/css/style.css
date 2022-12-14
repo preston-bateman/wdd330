@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&family=Roboto+Slab:wght@300&display=swap");
 body {
   background-color: #A0C1d1;
@@ -5,15 +6,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Nunito Sans", sans-serif;
-  
-}
-
-h1 {
-  font-size: 2.5em;
-}
-
-h4 {
-  font-size: 1.5em;
 }
 
 p, li, span {
@@ -51,6 +43,23 @@ p, li, span {
   width: 40%;
 }
 
+#details {
+  display: none;
+}
+
+#carrier {
+  display: none;
+}
+
+#testnumbers li {
+  list-style: none;
+  margin-left: -1em;
+}
+#testnumbers li::before {
+  content: "»  ";
+  font-weight: bolder;
+}
+
 .nodisplay {
   display: none;
 }
@@ -75,6 +84,34 @@ p, li, span {
 }
 .titleh h1, .titleh h2, .titleh h3, .titleh h4, .titleh h5, .titleh h6 {
   margin: 0;
+}
+
+.button {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  cursor: pointer;
+}
+.button span {
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover {
+  font-weight: bolder;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: -10px;
 }
 
 @media (min-width: 30em) {

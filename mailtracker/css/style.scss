@@ -46,6 +46,25 @@ p, li, span {
     }
 }
 
+#details {
+    display: none;
+}
+
+#carrier {
+    display: none;
+}
+
+#testnumbers {
+    li {
+        list-style: none;
+        margin-left: -1em;
+        &::before {
+            content: "\00BB" + "  ";
+            font-weight: bolder;
+        }
+    }
+}
+
 .nodisplay {
     display: none;
 }
@@ -69,6 +88,34 @@ p, li, span {
     align-items: center;
     h1, h2, h3, h4, h5, h6 {
         margin: 0;
+    }
+}
+
+.button {
+    border: 1px solid black;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    span {
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        &:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+    }
+    &:hover {
+        font-weight: bolder;
+        span:after {
+            opacity: 1;
+            right: -10px;
+        }
     }
 }
 
