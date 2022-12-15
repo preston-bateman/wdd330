@@ -10,13 +10,139 @@
             <h1>Week 9 Notes</h1>
         </section>
         <section class="notes_section">
-            <h2>Chapter</h2>
+            <h2>Chapter 9</h2>
             <div class="content">
-                <h3>Section</h3>
+                <h3>Browser Object Model</h3>
                 <ul class="notes">
                     <li>
-
+                        BOM is collection of properties and methods contain info about browser and computer screen.
                     </li>
+                    <li>
+                        These properties are available through window object. BOM only makes sense when JS is run in browser.
+                    </li>
+                    <li>
+                        Global variables are properties of the global object which is the window in the browser.
+                    </li>
+                    <li>
+                        alert() confirm() and prompt() are not part of JS but are part of the window object.
+                    </li>
+                    <li>
+                        .prompt() takes a dialog as argument and then returns the response from the user.
+                    </li>
+                </ul>
+                <h3>Browser Information</h3>
+                <ul class="notes">
+                    <li>
+                        window.navigator object has info on the browser and the operating system
+                    </li>
+                    <li>
+                        window.location contains info on the URL of the current page. the .reload() property of location can force a reload. 
+                    </li>
+                </ul>
+                <h3>Browser History</h3>
+                <ul class="notes">
+                    <li>
+                        window.history contains info on previous visited pages in the current browser session.
+                    </li>
+                    <li>
+                        history.go() with a number as the argument will go to previous and forward pages
+                    </li>
+                </ul>
+                <h3>Conrolling Windows</h3>
+                <ul class="notes">
+                    <li>
+                        You can open a new window with the window.open() method. The first parameter is the website to be opened, window title as second, and list of attributes as the third
+                    </li>
+                    <li>
+                        .close and .moveTo can close a window and move it on the screen respectively
+                    </li>
+                </ul>
+                <h3>Screen Info</h3>
+                <ul class="notes">
+                    <li>
+                        window.screen has the height and width properties that can be changed. .availHeight and .availWidth tells you the available screen real estate minus any menus.
+                    </li>
+                </ul>
+                <h3>Document Object</h3>
+                <ul class="notes">
+                    <li>
+                        window object has the document object. 
+                    </li>
+                    <li>
+                        You can use the .write to write to the screen.
+                    </li>
+                    <li>
+                        cookies are limited to 4kb of data
+                    </li>
+                    <li>
+                        Cookies are in the form of a text file that have name value pairs.
+                    </li>
+                    <li>
+                        You create a cookie by adding it to the document.cookie property.
+                    </li>
+                    <li>
+                        You read cookies with the split method that breaks the string into an array that you loop through.
+                    </li>
+                    <li>
+                        You make cookies persistent accross sessions with the expires=date at the end of the cookie string. 
+                    </li>
+                    <li>
+                        You delete cookies by setting the expiration date to the past.
+                    </li>
+                </ul>
+                <h3>Timeout Functions</h3>
+                <ul class="notes">
+                    <li>
+                        .setTimeout() method accepts callback function as first parameter and number of milliseconds as the second.
+                    </li>
+                    <li>
+                        .clearTimeout() will kill any outstanding timeouts
+                    </li>
+                </ul>
+                <h3>setInterval</h3>
+                <ul class="notes">
+                    <li>
+                        Similar to the setTimeout() method this method will call a function every set amount of time.
+                    </li>
+                    <li>
+                        .clearInterval is used to stop the method.
+                    </li>
+                </ul>
+            </div>
+            <h2>Chapter 14</h2>
+            <div class="content">
+                <h3>Data attribute</h3>
+                <ul class="notes">
+                    <li>
+                        data- is a way of embedding data in a page that the browser ignores.
+                    </li>
+                    <li>
+                        Naming Rules: start with "data-", contain only lowercase letters numbers hyphens dots colons underscores, include optional string value.
+                    </li>
+                </ul>
+                <h3>HTML 5 APIs</h3>
+                <ul class="notes">
+                    <li>
+                        HTML 5 introduced Local storage as well as session storage. 
+                    </li>
+                    <li>
+                        Storage is limited to about 5gb. 
+                    </li>
+                    <li>
+                        Methods include: getItem, setItem, remove, delete, and clear.
+                    </li>
+                    <li>
+                        Only strings can be used to store items. You can use the JSON.stringify method to store objects easily. They are then put in an array.
+                    </li>
+                </ul>
+                <h3>Drawing With Canvas</h3>
+                <ul class="notes">
+                    <li>
+                        canvas element was introduced to allow drawing in HTMl using javascript.
+                    </li>
+                    <li>
+                        Methods: fillStyle, strokeStyle, lineWidth, fillRect, strokeRect, beginPath, moveTo, endPath, lineTo, stroke
+                    </li> 
                 </ul>
             </div>
         </section>

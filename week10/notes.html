@@ -10,12 +10,98 @@
             <h1>Week 10 Notes</h1>
         </section>
         <section class="notes_section">
-            <h2>Chapter</h2>
+            <h2>Client Side Form Validation</h2>
+            <div class="content">
+                <h3>Built In Form</h3>
+                <ul class="notes">
+                    <li>
+                        This allows you to make inputs required, have a certain format, and set minimum requirements
+                    </li>
+                    <li>
+                        There is built in form validation and javascript validation.
+                    </li>
+                    <li>
+                        Built in includes on HTML: required, minlength and maxlength, min and max, type, and pattern which uses regular expressions.
+                    </li>
+                    <li>
+                        Only with Javascript can you take over the look and feel of error messages from form validation.
+                    </li>
+                </ul>
+                <h2>Constraint Validation API</h2>
             <div class="content">
                 <h3>Section</h3>
                 <ul class="notes">
                     <li>
+                        It makes methods and properties available to DOM interfaces: HTMLButtonElement, HTMLFieldSetElement, HTMLInputElement, HTMLSelectElement, HTMLTextAreaElement
+                    </li>
+                    <li>
+                        Available methods: validationMessage, validity
+                    </li>
+                    <li>
+                        patternMismatch will return true if there is a match issue with the pattern.
+                    </li>
+                    <li>
+                        tooLong- if entry to long, tooShort is the opposite.
+                    </li>
+                    <li>
+                        rangeOverflow returns true if value is greater than the value set by max().
+                    </li>
+                    <li>
+                        You can run the checkValidity method, preventDefault, reportValidity, and setCustomValidity.
+                    </li>
+                </ul>
+                <h2>Chapter</h2>
+            <div class="content">
+                <h3>CSS Pseudo Class</h3>
+                <ul class="notes">
+                    <li>
+                        You can also control form output from the css
+                    </li>
+                    <li>
+                        the invalid pseudo class can be used but the actual changes need to take place with the back end javascript.
+                    </li>
+                </ul>
+            </div>
+            </div>
+            </div>
+            <h2>Fetch API</h2>
+            <div class="content">
+                <h3>Promises</h3>
+                <ul class="notes">
+                    <li>
+                        Promises won't reject from an error status unless that error status comes from a network failure. 
+                    </li>
+                    <li>
+                        Unless it is called with credentials set to include, fetch doesn't send cross-origin cookes
+                    </li>
+                    <li>
+                        The reponse object in return from a fetch request isn't in JSON format. you have to run .json() on it to extract the JSON object.
+                    </li>
+                </ul>
+                <h2>Post JSON</h2>
 
+                <h3>Section</h3>
+                <ul class="notes">
+                    <li>
+                        You will want to save the json data to a variable to send
+                    </li>
+                    <li>
+                        With the post, you setup the headers, and make the method: POST. 
+                    </li>
+                    <li>
+                        You have to stringify the data to send with the JSON.stringify(data)
+                    </li>
+                    <li>
+                        There are issues with the CORs security with cross origin requests that don't have a very permissible return header on the Allow-Control-Access header.
+                    </li>
+                    <li>
+                        You can also do a type: file to send a file again saved in a variable.
+                    </li> 
+                    <li>
+                        You can use the Request() constructor to pre make the request and pass that to fetch as an argument instead of putting it in the body. This is very helpful when needing the same data accross multiple requests.
+                    </li>
+                    <li>
+                        The Headers() constructor is functions similarly so that you can reuse header data or you can pass through an array or object to be created with the constructor.
                     </li>
                 </ul>
             </div>
