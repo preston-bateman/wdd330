@@ -127,7 +127,7 @@ p, li, span {
 
 @media (min-width: 64em) {
     body {
-        background-color: $bluesky;
+        background-color: #221a4e;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -136,5 +136,6 @@ p, li, span {
         max-width: 30em;
         height: 95%;
         border: 1px ridge black;
+        background-color: $bluesky;
     }
 }
